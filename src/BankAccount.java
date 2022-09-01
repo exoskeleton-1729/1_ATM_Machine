@@ -12,7 +12,7 @@ public class BankAccount {
 	// Opens an account with specified initial deposit by adding account to HashMap
 	public void openAccount(long accountNumber, double initialDeposit)
 	{
-		accounts.put(accountNumber, round("" + initialDeposit));
+		accounts.put(accountNumber, round(initialDeposit));
 	}
 	
 	// If the account exists, this method closes it if and only if the balance is 0.0
@@ -29,7 +29,7 @@ public class BankAccount {
 	{
 		if(accounts.containsKey(accountNumber))
 		{
-			return accounts.get(accountNumber);
+			return round(accounts.get(accountNumber));
 		}
 		else
 		{
@@ -42,7 +42,7 @@ public class BankAccount {
 	{
 		if(accounts.containsKey(accountNumber) && deposit >= 0.0)
 		{
-			accounts.put(accountNumber, accounts.get(accountNumber) + round("" + deposit));
+			accounts.put(accountNumber, accounts.get(accountNumber) + round(deposit));
 			return true;
 		}
 		return false;
@@ -53,20 +53,15 @@ public class BankAccount {
 	{
 		if(accounts.containsKey(accountNumber) && withdraw >= 0.0)
 		{
-			accounts.put(accountNumber, accounts.get(accountNumber) - round("" + withdraw));
+			accounts.put(accountNumber, accounts.get(accountNumber) - round(withdraw));
 			return true;
 		}
 		return false;
 	}
 	
-	public double round(String input)
+	// Rounds a double to two decimal places
+	public double round(double input)
 	{
-		int firstTwo = Integer.parseInt(input.substring(input.indexOf(".") + 1, input.indexOf(".") + 3));
-		int toRound = Integer.parseInt("" + input.charAt(input.indexOf(".") + 3));
-		if(toRound >= 5)
-		{
-			firstTwo++;
-		}
-		return Double.parseDouble(input.substring(0, input.indexOf(".") + 1) + firstTwo);
+		return ((Math.round(input * 100))/100.0);
 	}
 }
