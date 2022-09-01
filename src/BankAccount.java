@@ -51,7 +51,7 @@ public class BankAccount {
 	// Returns true if the account exists and the withdrawal amount is greater than or equal to zero, otherwise false
 	public boolean withdrawMoney(long accountNumber, double withdraw)
 	{
-		if(accounts.containsKey(accountNumber) && withdraw >= 0.0)
+		if(accounts.containsKey(accountNumber) && withdraw >= 0.0 && withdraw <= accounts.get(accountNumber))
 		{
 			accounts.put(accountNumber, accounts.get(accountNumber) - round(withdraw));
 			return true;
