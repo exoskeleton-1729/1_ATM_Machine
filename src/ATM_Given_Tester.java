@@ -4,7 +4,7 @@ public class ATM_Given_Tester {
 	public static void main(String[] args) {
 		
 		
-		BankAccount chase = new BankAccount();
+		ATM chase = new ATM();
 		// Open accounts
 		chase.openAccount(00001);
 		chase.openAccount(00002, 2500.0);

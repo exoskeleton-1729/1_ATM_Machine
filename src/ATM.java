@@ -1,5 +1,5 @@
 import java.util.*;
-public class BankAccount {
+public class ATM {
 	
 	private HashMap<Long, Double> accounts = new HashMap<Long, Double> ();
 	
