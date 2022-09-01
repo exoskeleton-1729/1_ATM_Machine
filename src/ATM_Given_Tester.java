@@ -3,7 +3,6 @@ public class ATM_Given_Tester {
 
 	public static void main(String[] args) {
 		
-		
 		ATM chase = new ATM();
 		// Open accounts
 		chase.openAccount(00001);
